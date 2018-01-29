@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="OrderModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="OrderModelContainer" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CustomerSet" EntityType="OrderModel.Customer" />
+    <EntitySet Name="OrderSet" EntityType="OrderModel.Order" />
+    <AssociationSet Name="CustomerOrder" Association="OrderModel.CustomerOrder">
+      <End Role="Customer" EntitySet="CustomerSet" />
+      <End Role="Order" EntitySet="OrderSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerName" Type="String" Nullable="false" />
+    <Property Name="CustomerAddress" Type="String" Nullable="false" />
+    <Property Name="CustomerMail" Type="String" Nullable="false" />
+    <NavigationProperty Name="Order" Relationship="OrderModel.CustomerOrder" FromRole="Customer" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderDate" Type="String" Nullable="false" />
+    <Property Name="OrderPrice" Type="String" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="OrderModel.CustomerOrder" FromRole="Order" ToRole="Customer" />
+  </EntityType>
+  <Association Name="CustomerOrder">
+    <End Type="OrderModel.Customer" Role="Customer" Multiplicity="1" />
+    <End Type="OrderModel.Order" Role="Order" Multiplicity="*" />
+  </Association>
+</Schema>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OrderModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="OrderModelStoreContainer">
+    <EntitySet Name="CustomerSet" EntityType="OrderModel.Store.CustomerSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OrderSet" EntityType="OrderModel.Store.OrderSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="CustomerOrder" Association="OrderModel.Store.CustomerOrder">
+      <End Role="Customer" EntitySet="CustomerSet" />
+      <End Role="Order" EntitySet="OrderSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="CustomerSet">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CustomerAddress" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CustomerMail" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderSet">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderDate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OrderPrice" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Customer_CustomerId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="CustomerOrder">
+    <End Role="Customer" Type="OrderModel.Store.CustomerSet" Multiplicity="1" />
+    <End Role="Order" Type="OrderModel.Store.OrderSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerId" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Customer_CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticaViewModels", "PracticaViewModels\PracticaViewModels.csproj", "{9D683BDA-FC75-473A-B992-1A7D1FC0B538}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D683BDA-FC75-473A-B992-1A7D1FC0B538}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D683BDA-FC75-473A-B992-1A7D1FC0B538}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D683BDA-FC75-473A-B992-1A7D1FC0B538}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D683BDA-FC75-473A-B992-1A7D1FC0B538}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9D55A407-2A3E-49DE-9AE8-D7C298526A6F}
+	EndGlobalSection
+EndGlobal

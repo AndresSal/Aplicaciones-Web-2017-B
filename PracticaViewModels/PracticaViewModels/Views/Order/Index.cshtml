@@ -1,0 +1,40 @@
+﻿@model IEnumerable<PracticaViewModels.Order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderPrice)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderPrice)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { OrderId=item.OrderId }) |
+            @Html.ActionLink("Details", "Details", new { OrderId=item.OrderId }) |
+            @Html.ActionLink("Delete", "Delete", new { OrderId=item.OrderId })
+        </td>
+    </tr>
+}
+
+</table>
